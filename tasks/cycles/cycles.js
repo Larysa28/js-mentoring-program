@@ -1,3 +1,5 @@
+const { int } = require("../variables/variables");
+
 /** TODO
  * implement factorial algorithm using for, while, do..while operators
  * assign result to corresponding variable
@@ -6,14 +8,40 @@
  * do..while - doFactorial
  */
 let forFactorial, whileFactorial, doFactorial;
-const n = 10; //10! = 3628800
+let n = 10; //10! = 3628800
+
+forFactorial = 1;
+for (let i = 1; i < n + 1; i++) {
+  forFactorial = forFactorial * i;
+  console.log(i, forFactorial);
+}
+
+whileFactorial = 1;
+let i = 1;
+while (i < n + 1) {
+  whileFactorial = whileFactorial * i;
+  i++;
+}
+
+doFactorial = 1;
+i = 1;
+do {
+ doFactorial = doFactorial * i; 
+ i++;
+} while (i < n+1);
+
 
 /** TODO
  * return concatenated string from an array of substring
  * assign result to variable str
  */
-let str;
+let str ;
 const substr = ["I", " love", " JS"];
+for (let i = 0; i < substr.length; i++) {
+str += substr[i];
+}
+console.log(str);
+
 
 
 
@@ -28,6 +56,10 @@ const personIncomes = {
   interestOnDeposit: 250,
   otherExpences: -300
 };
+
+totalIncome = [1985 + 250] - [600 + 300];
+
+
 
 
 module.exports = {
