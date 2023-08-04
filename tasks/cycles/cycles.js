@@ -35,7 +35,7 @@ do {
  * return concatenated string from an array of substring
  * assign result to variable str
  */
-let str ;
+let str = "" ;
 const substr = ["I", " love", " JS"];
 for (let i = 0; i < substr.length; i++) {
 str += substr[i];
@@ -49,7 +49,7 @@ console.log(str);
  * calculate a total of income of certain person
  * assign result to variable totalIncome
  */
-let totalIncome;
+let totalIncome = 0;
 const personIncomes = {
   salary: 1985,
   rent: -600,
@@ -57,7 +57,10 @@ const personIncomes = {
   otherExpences: -300
 };
 
-totalIncome = [1985 + 250] - [600 + 300];
+
+for (let key in personIncomes) { 
+  totalIncome += personIncomes[key];
+}
 
 
 
