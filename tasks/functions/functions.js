@@ -3,8 +3,16 @@
  *
  */
 function sum(a, b) {
-	return (a + b)
+	return a + b;
+};
+console.log(sum(1,2));
+
+function calcDiscount(ticketCost, discount ) {
+	return ticketCost - discount;
 }
+ticket = calcDiscount(10,5);
+
+
 
 /**
  * write function that return first and last name of a given object
@@ -14,18 +22,20 @@ function sum(a, b) {
  *    lastName: "Dou"
  * }
  */
-function getFullName(object) {
+function getFullName(firstName, lastName ) {
+	return firstName + " " + lastName;
+};
+const fullName = getFullName("John", "Dou");
 
-}
 
 /**
  * write fuction that checks if number is odd
  * true if odd, false if even
  */
 function isOdd(n) {
-
+	return n % 2 !== 0;
 }
-
+console.log(isOdd(4), isOdd(5));
 /**
  * write function that return shortest of words in the given array
  * e.g ["one", "two", "three"] should return one
