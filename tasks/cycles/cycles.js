@@ -18,7 +18,7 @@ for (let i = 1; i < n + 1; i++) {
 
 whileFactorial = 1;
 let i = 1;
-while (i < n + 1) {
+while (i < n + 1) { 
   whileFactorial = whileFactorial * i;
   i++;
 }
