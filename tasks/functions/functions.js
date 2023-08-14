@@ -36,21 +36,44 @@ function isOdd(n) {
 	return n % 2 !== 0;
 }
 console.log(isOdd(4), isOdd(5));
+
+
 /**
  * write function that return shortest of words in the given array
  * e.g ["one", "two", "three"] should return one
  */
-function getShortest(wordArray) {
-
+const wordArray = ["one", "two", "three"];
+function getShortest(wordArray) { 
+	let shortestWord = wordArray[0];
+	for (let i = 0; i < wordArray.length; i++) { 
+		
+    	let wordLength = wordArray[i].length;
+		if (wordLength < shortestWord.length) {
+			shortestWord = wordArray[i];
+		}
+	} 
+	return shortestWord;
 }
+console.log(getShortest(wordArray));
+
 
 /**
  * write function that returns word google with given numbers of "o" symbols
  * e.g getGoogle(5) should return "gooooogle"
  */
-function getGoogle(n) {
-
+let num_o = 2;
+let result = getGoogle(num_o);
+function getGoogle(num_o) {
+        return "g" + "o".repeat(num_o) + "gle";
 }
+console.log(result);
+
+let n = 2;
+function getGoogle(n) {
+    if (n <= 0) {
+        return "google";
+}
+console.log(getGoogle(n));
 
 /**
  * write function that returns object based on the given information 
@@ -62,9 +85,15 @@ function getGoogle(n) {
  *    age: 42
  * }
  */
-function getUser(firstName, lastName, age) {
+function getUser(firstName = "John", lastName = "Dou", age = "42") {
+return {}
+	firstName,
+	lastName,
+	age
+};
 
-}
+const user = getUser("John", "Dou", "42");
+console.log(user);
 
 /**
  * write function that calculates total path traveled.
@@ -72,9 +101,21 @@ function getUser(firstName, lastName, age) {
  * e.g [{direction: "Kiyv - Minsk", distance: 567}, {direction: "Kiyv - Paris", distance: 2402}]
  */
 
-function getTotalPath(path) {
 
+function calculateTotalPathDistance(path) {
+    let totalDistance = 0;
+
+    for (let i = 0; i < path.length; i++) {
+        totalDistance += path[i].distance;
+    }
+    return totalDistance;
 }
+
+const path = [
+    { direction: "Kiyv - Minsk", distance: 567 },
+    { direction: "Kiyv - Paris", distance: 2402 }
+];
+const totalDistance = calculateTotalPathDistance(path);
 
 /**
  * write a function that will calculate a discount considering the Amount
@@ -86,9 +127,11 @@ function getTotalPath(path) {
  * discount10(100) should return 90
  */
 
+let amount = 100;
 function discountFunction(percentage) {
 
 	return function (amount) {
+		
 	};
 }
 
