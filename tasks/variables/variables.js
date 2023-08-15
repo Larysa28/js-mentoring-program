@@ -2,43 +2,43 @@
  * TODO create variable named int and set value equal to 1
 */
 
-var int = 1;
+const int = 1;
 
 /**
  *  TODO create variable named int2 and set value equal int plus 1
  */
 
-var int2 = int + 1;
+const int2 = int + 1;
 
 /**
  * TODO create variable named str and set value equal to "John"
  */
 
-var str = "John";
+const str = "John";
 
 /**
  * TODO create variable named str2 and set value equal str plus " Dou"
  */
 
-var str2 = str + " Dou";
+const str2 = str + " Dou";
 
 /**
  * TODO create variable named bool and set value equal to comparison of int and int2 variables
  */
 
-var bool = int == int2;
+const bool = int == int2;
 
 /**
  * TODO create variable named arr and set value array of numbers from 1 to 5
  */
 
-var arr = [1,2,3,4,5];
+const arr = [1,2,3,4,5];
 
 /**
  * TODO create variable named fifth and set value as element of array with index 4
  */
 
-var fifth = arr[4];
+const fifth = arr[4];
 
 
 
@@ -46,7 +46,7 @@ var fifth = arr[4];
  * TODO create variable named human and set value as object with key firstName and value "John"
  */
 
-var human = {
+const human = {
   firstName: "John"
 };
 
