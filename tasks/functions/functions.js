@@ -61,19 +61,27 @@ console.log(getShortest(wordArray));
  * write function that returns word google with given numbers of "o" symbols
  * e.g getGoogle(5) should return "gooooogle"
  */
-let num_o = 2;
-let result = getGoogle(num_o);
-function getGoogle(num_o) {
-        return "g" + "o".repeat(num_o) + "gle";
-}
-console.log(result);
 
-let n = 2;
+
+
 function getGoogle(n) {
-    if (n <= 0) {
-        return "google";
+	let google = "g";
+for (let i = 0; i < n; i++) {
+	 google += "o";
 }
-console.log(getGoogle(n));
+return google + "gle";
+}
+console.log(getGoogle(2));
+
+
+function getSum(n) {
+	let sum = 0;
+for (let i = 0; i <= n; i++) {
+ sum += i;
+}
+	return sum;
+}
+console.log(getSum(3));
 
 /**
  * write function that returns object based on the given information 
@@ -86,12 +94,12 @@ console.log(getGoogle(n));
  * }
  */
 function getUser(firstName = "John", lastName = "Dou", age = "42") {
-return {}
+return {
 	firstName,
 	lastName,
 	age
+}
 };
-
 const user = getUser("John", "Dou", "42");
 console.log(user);
 
@@ -131,9 +139,11 @@ let amount = 100;
 function discountFunction(percentage) {
 
 	return function (amount) {
-		
+		return amount - (amount / 100 * percentage)
 	};
 }
+const discount10 = discountFunction(10);
+console.log(discount10(100));
 
 /**
  * Write the methods inside the given objects that:
@@ -148,13 +158,18 @@ const myObject = {
 	age: 25,
 	friends: ['Mike', 'Alan', 'Daniel'],
 	keys() {
-		//write your code here
+		for (let key in this) { 
+			console.log(key);
+		  }		  
 	},
 	call() {
-		//write your code here
+		return `My name is ${this.name} ${this.lastName} and I am ${this.age} years old. My best friend is ${this.friends[2]}`
 	}
 
 };
+myObject.keys();
+console.log(myObject.call());
+  
 
 module.exports = {
 	sum,
