@@ -1,5 +1,6 @@
-const characters  = require("./characters.json");
+const chars = require("./characters.json")
 /**
+ * 
  * return an array of characters names
  * @param {Array} chars
  * @return {Array} - char names

@@ -3,8 +3,16 @@
  *
  */
 function sum(a, b) {
-	
+	return a + b;
+};
+console.log(sum(1,2));
+
+function calcDiscount(ticketCost, discount ) {
+	return ticketCost - discount;
 }
+ticket = calcDiscount(10,5);
+
+
 
 /**
  * write function that return first and last name of a given object
@@ -14,33 +22,66 @@ function sum(a, b) {
  *    lastName: "Dou"
  * }
  */
-function getFullName(object) {
+function getFullName(firstName, lastName ) {
+	return firstName + " " + lastName;
+};
+const fullName = getFullName("John", "Dou");
 
-}
 
 /**
  * write fuction that checks if number is odd
  * true if odd, false if even
  */
 function isOdd(n) {
-
+	return n % 2 !== 0;
 }
+console.log(isOdd(4), isOdd(5));
+
 
 /**
  * write function that return shortest of words in the given array
  * e.g ["one", "two", "three"] should return one
  */
-function getShortest(wordArray) {
-
+const wordArray = ["one", "two", "three"];
+function getShortest(wordArray) { 
+	let shortestWord = wordArray[0];
+	for (let i = 0; i < wordArray.length; i++) { 
+		
+    	let wordLength = wordArray[i].length;
+		if (wordLength < shortestWord.length) {
+			shortestWord = wordArray[i];
+		}
+	} 
+	return shortestWord;
 }
+console.log(getShortest(wordArray));
+
 
 /**
  * write function that returns word google with given numbers of "o" symbols
  * e.g getGoogle(5) should return "gooooogle"
  */
-function getGoogle(n) {
 
+
+
+function getGoogle(n) {
+	let google = "g";
+for (let i = 0; i < n; i++) {
+	 google += "o";
 }
+return google + "gle";
+}
+console.log(getGoogle(2));
+
+
+function getSum(n) {
+	let sum = 0;
+for (let i = 0; i <= n; i++) {
+ sum += i;
+}
+	return sum;
+}
+console.log(getSum(3));
 
 /**
  * write function that returns object based on the given information 
@@ -52,9 +93,15 @@ function getGoogle(n) {
  *    age: 42
  * }
  */
-function getUser(firstName, lastName, age) {
-
+function getUser(firstName = "John", lastName = "Dou", age = "42") {
+return {
+	firstName,
+	lastName,
+	age
 }
+};
+const user = getUser("John", "Dou", "42");
+console.log(user);
 
 /**
  * write function that calculates total path traveled.
@@ -62,9 +109,21 @@ function getUser(firstName, lastName, age) {
  * e.g [{direction: "Kiyv - Minsk", distance: 567}, {direction: "Kiyv - Paris", distance: 2402}]
  */
 
-function getTotalPath(path) {
 
+function calculateTotalPathDistance(path) {
+    let totalDistance = 0;
+
+    for (let i = 0; i < path.length; i++) {
+        totalDistance += path[i].distance;
+    }
+    return totalDistance;
 }
+
+const path = [
+    { direction: "Kiyv - Minsk", distance: 567 },
+    { direction: "Kiyv - Paris", distance: 2402 }
+];
+const totalDistance = calculateTotalPathDistance(path);
 
 /**
  * write a function that will calculate a discount considering the Amount
@@ -76,11 +135,15 @@ function getTotalPath(path) {
  * discount10(100) should return 90
  */
 
+let amount = 100;
 function discountFunction(percentage) {
 
 	return function (amount) {
+		return amount - (amount / 100 * percentage)
 	};
 }
+const discount10 = discountFunction(10);
+console.log(discount10(100));
 
 /**
  * Write the methods inside the given objects that:
@@ -95,13 +158,18 @@ const myObject = {
 	age: 25,
 	friends: ['Mike', 'Alan', 'Daniel'],
 	keys() {
-		//write your code here
+		for (let key in this) { 
+			console.log(key);
+		  }		  
 	},
 	call() {
-		//write your code here
+		return `My name is ${this.name} ${this.lastName} and I am ${this.age} years old. My best friend is ${this.friends[2]}`
 	}
 
 };
+myObject.keys();
+console.log(myObject.call());
+  
 
 module.exports = {
 	sum,
