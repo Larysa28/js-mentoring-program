@@ -13,7 +13,6 @@ let n = 10; //10! = 3628800
 forFactorial = 1;
 for (let i = 1; i < n + 1; i++) {
   forFactorial = forFactorial * i;
-  console.log(i, forFactorial);
 }
 
 
@@ -41,7 +40,6 @@ const substr = ["I", " love", " JS"];
 for (let i = 0; i < substr.length; i++) {
 str += substr[i];
 }
-console.log(str);
 
 
 
