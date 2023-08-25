@@ -1,4 +1,7 @@
+const chars = require("./characters.json")
+console.log(chars);
 /**
+ * 
  * return an array of characters names
  * @param {Array} chars
  * @return {Array} - char names
