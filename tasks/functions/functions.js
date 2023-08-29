@@ -2,10 +2,12 @@
  * write function that will do sum for two numbers
  *
  */
-function sum(a, b) {
-	return a + b;
-};
-console.log(sum(1,2));
+//function sum(a, b) {
+	//return a + b;
+//};
+//console.log(sum(1,2));
+
+const sum2 = (a,b) => a + b;
 
 function calcDiscount(ticketCost, discount ) {
 	return ticketCost - discount;
@@ -22,40 +24,57 @@ ticket = calcDiscount(10,5);
  *    lastName: "Dou"
  * }
  */
-function getFullName(firstName, lastName ) {
-	return firstName + " " + lastName;
-};
-const fullName = getFullName("John", "Dou");
+//function getFullName(firstName, lastName ) {
+//	return firstName + " " + lastName;
+//};
+//const fullName = getFullName("John", "Dou");
 
+const getFullName = (firstName, lastName) => firstName + " " + lastName;
+const fullName = getFullName("John", "Dou");
+console.log(fullName);
 
 /**
  * write fuction that checks if number is odd
  * true if odd, false if even
  */
-function isOdd(n) {
-	return n % 2 !== 0;
-}
-console.log(isOdd(4), isOdd(5));
+//function isOdd(n) {
+//	return n % 2 !== 0;
+//}
+//console.log(isOdd(4), isOdd(5));
 
+const isOdd = n => n % 2 !== 0;
 
 /**
  * write function that return shortest of words in the given array
  * e.g ["one", "two", "three"] should return one
  */
-const wordArray = ["one", "two", "three"];
-function getShortest(wordArray) { 
-	let shortestWord = wordArray[0];
-	for (let i = 0; i < wordArray.length; i++) { 
+//const wordArray = ["one", "two", "three"];
+//function getShortest(wordArray) { 
+	//let shortestWord = wordArray[0];
+	//for (let i = 0; i < wordArray.length; i++) { 
 		
-    	let wordLength = wordArray[i].length;
-		if (wordLength < shortestWord.length) {
-			shortestWord = wordArray[i];
-		}
-	} 
-	return shortestWord;
-}
-console.log(getShortest(wordArray));
+    	//let wordLength = wordArray[i].length;
+		//if (wordLength < shortestWord.length) {
+		//	shortestWord = wordArray[i];
+		//}
+	//} 
+	//return shortestWord;
+//}
+//console.log(getShortest(wordArray));
 
+const wordArray = ["one", "two", "three"];
+const getShortest = (wordArray) => {
+    let shortestWord = wordArray[0];
+    for (let i = 0; i < wordArray.length; i++) {
+        let wordLength = wordArray[i].length;
+        if (wordLength < shortestWord.length) {
+            shortestWord = wordArray[i];
+        }
+    }
+    return shortestWord;
+};
+
+console.log(getShortest(wordArray));
 
 /**
  * write function that returns word google with given numbers of "o" symbols
@@ -64,13 +83,23 @@ console.log(getShortest(wordArray));
 
 
 
-function getGoogle(n) {
-	let google = "g";
-for (let i = 0; i < n; i++) {
-	 google += "o";
-}
-return google + "gle";
-}
+//function getGoogle(n) {
+//	let google = "g";
+//for (let i = 0; i < n; i++) {
+//	 google += "o";
+//}
+//return google + "gle";
+//}
+//console.log(getGoogle(2));
+
+const getGoogle = n => {
+    let google = "g";
+    for (let i = 0; i < n; i++) {
+        google += "o";
+    }
+    return google + "gle";
+};
+
 console.log(getGoogle(2));
 
 
@@ -93,15 +122,23 @@ console.log(getSum(3));
  *    age: 42
  * }
  */
-function getUser(firstName = "John", lastName = "Dou", age = "42") {
-return {
-	firstName,
-	lastName,
-	age
-}
-};
-const user = getUser("John", "Dou", "42");
-console.log(user);
+//function getUser(firstName = "John", lastName = "Dou", age = "42") {
+//return {
+	//firstName,
+	//lastName,
+	//age
+//}
+//};
+//const user = getUser("John", "Dou", "42");
+//console.log(user);
+
+
+const getUser = (firstName = "John", lastName = "Dou", age = "42") => ({
+    firstName,
+    lastName,
+    age
+});
+console.log(getUser());
 
 /**
  * write function that calculates total path traveled.
@@ -110,21 +147,35 @@ console.log(user);
  */
 
 
-function calculateTotalPathDistance(path) {
+//function calculateTotalPathDistance(path) {
+   // let totalDistance = 0;
+
+   // for (let i = 0; i < path.length; i++) {
+   //     totalDistance += path[i].distance;
+  //  }
+  //  return totalDistance;
+//}
+
+//const path = [
+   // { direction: "Kiyv - Minsk", distance: 567 },
+   // { direction: "Kiyv - Paris", distance: 2402 }
+//];
+//const totalDistance = calculateTotalPathDistance(path);
+
+const calculateTotalPathDistance = (path) => {
     let totalDistance = 0;
 
     for (let i = 0; i < path.length; i++) {
         totalDistance += path[i].distance;
     }
     return totalDistance;
-}
+};
 
 const path = [
     { direction: "Kiyv - Minsk", distance: 567 },
     { direction: "Kiyv - Paris", distance: 2402 }
 ];
 const totalDistance = calculateTotalPathDistance(path);
-
 /**
  * write a function that will calculate a discount considering the Amount
  * and the percentage (hint: you need to use the Closure here)
@@ -135,16 +186,22 @@ const totalDistance = calculateTotalPathDistance(path);
  * discount10(100) should return 90
  */
 
-let amount = 100;
-function discountFunction(percentage) {
+//let amount = 100;
+//function discountFunction(percentage) {
 
-	return function (amount) {
+	//return function (amount) {
+	//	return amount - (amount / 100 * percentage)
+	//};
+//}
+//const discount10 = discountFunction(10);
+//console.log(discount10(100));
+
+let amount = 100;
+const discountFunction = (percentage) => (amount) => {
 		return amount - (amount / 100 * percentage)
 	};
-}
 const discount10 = discountFunction(10);
 console.log(discount10(100));
-
 /**
  * Write the methods inside the given objects that:
  * 1. console logs keys of the given object (please use for..in cycle)
