@@ -5,26 +5,26 @@ const chars = require("./characters.json")
  * @param {Array} chars
  * @return {Array} - char names
  */
-const getCharactersNames = ((chars) => chars.map(item => item.name));
-//console.log(getCharactersNames(characters));
+const getCharactersNames = chars => chars.map(item => item.name);
+console.log (getCharactersNames(chars));
 
-const names = getCharactersNames(characters);
-//console.log(names);
+
 /**
  * print (console.log) names of all characters
  * @param {Array} chars
  */
 
-characters.forEach(item => console.log(item.name));
+chars.forEach(item => console.log(item.name));
 
-
-  	
+ 	
 /**
  * return an array of non-human (species !== 'human') characters
  * @param {Array} chars
  * @return {Array} - non human characters
  */
 
+const nonHuman = chars.filter(char => char.species !== "Human");
+console.log(nonHuman);
 
 /**
  * return info about character named 'Jerry Smith'
@@ -32,8 +32,10 @@ characters.forEach(item => console.log(item.name));
  * @return {Object} - Jerry object
  */
 function getJerryInfo(chars) {
-
-}
+return chars.filter ((char) => char.name === "Jerry Smith")
+};
+const Jerry = getJerryInfo(chars);
+console.log(Jerry);
 
 /**
  * check if all characters are human. return true if all, false if not
