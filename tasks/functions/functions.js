@@ -214,14 +214,12 @@ const myObject = {
 	lastName: 'Doe',
 	age: 25,
 	friends: ['Mike', 'Alan', 'Daniel'],
-	keys() {
+	keys:() => {
 		for (let key in this) { 
 			console.log(key);
 		  }		  
 	},
-	call() {
-		return `My name is ${this.name} ${this.lastName} and I am ${this.age} years old. My best friend is ${this.friends[2]}`
-	}
+	call:() =>  `My name is ${this.name} ${this.lastName} and I am ${this.age} years old. My best friend is ${this.friends[2]}`
 
 };
 myObject.keys();
