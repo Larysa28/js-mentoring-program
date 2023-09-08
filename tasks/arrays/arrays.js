@@ -32,24 +32,33 @@ console.log(nonHuman);
  * @return {Object} - Jerry object
  */
 function getJerryInfo(chars) {
-return chars.filter ((char) => char.name === "Jerry Smith")
+return chars.find ((char) => char.name === "Jerry Smith")
 };
-const Jerry = getJerryInfo(chars);
-console.log(Jerry);
+const jerry = getJerryInfo(chars);
+console.log(jerry);
 
 /**
  * check if all characters are human. return true if all, false if not
  * @param {Array} chars
  * @return {boolean}
  */
-function isAllHuman(chars) {}
+function isAllHuman(chars) {
+	return chars.every((char) => char.species === "Human")
+};
+const isHuman = isAllHuman(chars);
+console.log(isHuman);
+
 
 /**
  * check if there are any Fish-Person characters. return true if any, false if not
  * @param {Array} chars
  * @return {boolean}
  */
-function isAnyFishPerson(chars) {}
+function isAnyFishPerson(chars) {
+	return chars.some((char) => char.type === "Fish-Person");
+};
+const isFish = isAnyFishPerson(chars);
+console.log(isFish)
 
 /**
  * 1. Write a method to find an index of minimal item from an array;
@@ -58,14 +67,23 @@ function isAnyFishPerson(chars) {}
  * @example
  * console.log(minItem([2,5,6,3,1,8])) // 4
  */
-function minItem(arr) {
-	//PLACE YOUR CODE HERE
+
+function minIndexItem(arr) {
+	let minIndex = 0;
+	let firstElement = arr[0];
+for (let i = 0; i < arr.length; i++) {
+	if ( arr[i] < firstElement){
+minIndex = i;
+	}
 }
+return minIndex;
+}
+console.log(minIndexItem([2,5,6,3,1,8]));
 
 module.exports = {
 	getCharactersNames,
-	printCharacterNames,
-	getNonHumanCharacters,
+	//printCharacterNames,
+	//getNonHumanCharacters,
 	getJerryInfo,
 	isAllHuman,
 	isAnyFishPerson,
