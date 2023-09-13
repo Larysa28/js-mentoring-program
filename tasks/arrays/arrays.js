@@ -6,7 +6,7 @@ const chars = require("./characters.json")
  * @return {Array} - char names
  */
 const getCharactersNames = chars => chars.map(item => item.name);
-console.log (getCharactersNames(chars));
+
 
 
 /**
@@ -24,7 +24,6 @@ chars.forEach(item => console.log(item.name));
  */
 
 const nonHuman = chars.filter(char => char.species !== "Human");
-console.log(nonHuman);
 
 /**
  * return info about character named 'Jerry Smith'
@@ -35,7 +34,6 @@ function getJerryInfo(chars) {
 return chars.find ((char) => char.name === "Jerry Smith")
 };
 const jerry = getJerryInfo(chars);
-console.log(jerry);
 
 /**
  * check if all characters are human. return true if all, false if not
@@ -46,7 +44,6 @@ function isAllHuman(chars) {
 	return chars.every((char) => char.species === "Human")
 };
 const isHuman = isAllHuman(chars);
-console.log(isHuman);
 
 
 /**
@@ -58,7 +55,6 @@ function isAnyFishPerson(chars) {
 	return chars.some((char) => char.type === "Fish-Person");
 };
 const isFish = isAnyFishPerson(chars);
-console.log(isFish)
 
 /**
  * 1. Write a method to find an index of minimal item from an array;
@@ -78,14 +74,12 @@ minIndex = i;
 }
 return minIndex;
 }
-console.log(minIndexItem([2,5,6,3,1,8]));
-
-module.exports = {
-	getCharactersNames,
+//module.exports = {
+	//getCharactersNames,
 	//printCharacterNames,
 	//getNonHumanCharacters,
-	getJerryInfo,
-	isAllHuman,
-	isAnyFishPerson,
-	minItem
-};
+	//getJerryInfo,
+	//isAllHuman,
+	//isAnyFishPerson,
+	//minItem
+//};
