@@ -76,7 +76,13 @@ return charsCount;
  * console.log(truncateString('This', 6)) // 'This'
  */
 function truncateString(str, num) {
-
+  function truncateString(str, num) {
+    if (str.length <= num) {
+      return str;
+    } else {
+      return str.slice(0, num) + '...';
+    }
+  }
 }
 
 /**
