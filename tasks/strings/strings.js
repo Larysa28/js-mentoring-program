@@ -8,8 +8,12 @@
  * console.log(reverseString(123)) // 'This is not a string!'
  */
 function reverseString(str) {
-  
+  if (typeof str !== 'string') {
+    return 'This is not a string!';
+  }
+  return str.split("").reverse().join("");
 }
+console.log(reverseString("3"));
 
 /**
  * Calculate a century by given year if a number is passed
@@ -21,9 +25,22 @@ function reverseString(str) {
 * console.log(centuryFromYear(1601)) // 17
 */
 function centuryFromYear(year) {
-  
-}
+  if (typeof year !== "number") {
+    return "Please pass parameter as a number";
+  }
+  let yearString = "" + year;
+  let century = parseInt(yearString.substring(0,2));
+  let rest = parseInt(yearString.substring(2));
+  if (rest > 0){
+    century++;
+  }
+  return century;
 
+}
+console.log(centuryFromYear(1705));
+console.log(centuryFromYear(1900));
+console.log(centuryFromYear(1601));
+console.log(centuryFromYear("notNumber"));
 /**
  * Calculate count of the provided char in the string
  * @param {string} str
@@ -35,7 +52,16 @@ function centuryFromYear(year) {
  * console.log(strCount('', 'z')) // 0
  */
 function strCount(str, char) {
-
+  if (typeof str !== 'string') {
+    return 'Provided parameter is not a string'
+  }
+  let charsCount = 0;
+for (let i = 0; i < str.length; i++){
+if (str[i] === char){
+  charsCount++;
+}
+}
+return charsCount;
 }
 
 /**
@@ -61,8 +87,13 @@ function truncateString(str, num) {
  * console.log(replace10("231054")) // 23ten54
  */
 function replace10(text) {
-
+  if (typeof text !== "string") {
+    return 'Provided parameter is not correct'
+  }
+  const updatedText = text.replace(10, 'ten');
+  return updatedText;
 }
+console.log(replace10('231089'))
 
 /**
  * replace value in square brackets with CONFIDENTIAL
@@ -72,8 +103,13 @@ function replace10(text) {
  * console.log(replaceConfidential("lorem [ipsum] si dolor")) // lorem [CONFIDENTIAL] si dolor
  */
 function replaceConfidential(text) {
-
-}
+  if (typeof text !== "string") {
+    return 'Provided parameter should be a string'
+  }
+   const confidential = text.replace("[ipsum]", "[CONFIDENTIAL]");
+    return confidential;
+  }
+  console.log(replaceConfidential("lorem [ipsum] si dolor"))
 
 module.exports = {
   reverseString,
