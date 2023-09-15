@@ -12,8 +12,7 @@ function reverseString(str) {
     return 'This is not a string!';
   }
   return str.split("").reverse().join("");
-}
-console.log(reverseString("3"));
+};
 
 /**
  * Calculate a century by given year if a number is passed
@@ -35,12 +34,8 @@ function centuryFromYear(year) {
     century++;
   }
   return century;
+};
 
-}
-console.log(centuryFromYear(1705));
-console.log(centuryFromYear(1900));
-console.log(centuryFromYear(1601));
-console.log(centuryFromYear("notNumber"));
 /**
  * Calculate count of the provided char in the string
  * @param {string} str
@@ -62,7 +57,7 @@ if (str[i] === char){
 }
 }
 return charsCount;
-}
+};
 
 /**
  * Write a method to reduce the length of the string or truncate it if it is longer
@@ -81,8 +76,7 @@ function truncateString(str, num) {
     } else {
       return str.slice(0, num) + '...';
     }
-  }
-console.log(truncateString('This is a long string', 6));
+  };
 
 /**
  * replace 10 with 'ten' word
@@ -95,10 +89,8 @@ function replace10(text) {
   if (typeof text !== "string") {
     return 'Provided parameter is not correct'
   }
-  const updatedText = text.replace(10, 'ten');
-  return updatedText;
-}
-console.log(replace10('231089'))
+  return text.replace(/10/gi, 'ten');
+};
 
 /**
  * replace value in square brackets with CONFIDENTIAL
@@ -111,10 +103,9 @@ function replaceConfidential(text) {
   if (typeof text !== "string") {
     return 'Provided parameter should be a string'
   }
-   const confidential = text.replace("[ipsum]", "[CONFIDENTIAL]");
+   const confidential = text.replace(/\[[^\]]+\]/g, "[CONFIDENTIAL]");
     return confidential;
-  }
-  console.log(replaceConfidential("lorem [ipsum] si dolor"))
+  };
 
 module.exports = {
   reverseString,
