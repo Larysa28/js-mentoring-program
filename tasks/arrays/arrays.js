@@ -13,8 +13,9 @@ const getCharactersNames = chars => chars.map(item => item.name);
  * print (console.log) names of all characters
  * @param {Array} chars
  */
-
-chars.forEach(item => console.log(item.name));
+function printCharacterNames (){
+	chars.forEach(item => console.log(item.name));
+}
 
  	
 /**
@@ -22,8 +23,10 @@ chars.forEach(item => console.log(item.name));
  * @param {Array} chars
  * @return {Array} - non human characters
  */
+function getNonHumanCharacters(){
+return chars.filter(char => char.species !== "Human");
+};
 
-const nonHuman = chars.filter(char => char.species !== "Human");
 
 /**
  * return info about character named 'Jerry Smith'
@@ -64,7 +67,7 @@ const isFish = isAnyFishPerson(chars);
  * console.log(minItem([2,5,6,3,1,8])) // 4
  */
 
-function minIndexItem(arr) {
+function minItem(arr) {
 	let minIndex = 0;
 	let firstElement = arr[0];
 for (let i = 0; i < arr.length; i++) {
@@ -74,12 +77,12 @@ minIndex = i;
 }
 return minIndex;
 }
-//module.exports = {
-	//getCharactersNames,
-	//printCharacterNames,
-	//getNonHumanCharacters,
-	//getJerryInfo,
-	//isAllHuman,
-	//isAnyFishPerson,
-	//minItem
-//};
+module.exports = {
+	getCharactersNames,
+	printCharacterNames,
+	getNonHumanCharacters,
+	getJerryInfo,
+	isAllHuman,
+	isAnyFishPerson,
+	minItem
+};
