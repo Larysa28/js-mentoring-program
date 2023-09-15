@@ -36,7 +36,6 @@ return chars.filter(char => char.species !== "Human");
 function getJerryInfo(chars) {
 return chars.find ((char) => char.name === "Jerry Smith")
 };
-const jerry = getJerryInfo(chars);
 
 /**
  * check if all characters are human. return true if all, false if not
@@ -46,8 +45,6 @@ const jerry = getJerryInfo(chars);
 function isAllHuman(chars) {
 	return chars.every((char) => char.species === "Human")
 };
-const isHuman = isAllHuman(chars);
-
 
 /**
  * check if there are any Fish-Person characters. return true if any, false if not
@@ -57,8 +54,6 @@ const isHuman = isAllHuman(chars);
 function isAnyFishPerson(chars) {
 	return chars.some((char) => char.type === "Fish-Person");
 };
-const isFish = isAnyFishPerson(chars);
-
 /**
  * 1. Write a method to find an index of minimal item from an array;
  * @param {Array} arr
