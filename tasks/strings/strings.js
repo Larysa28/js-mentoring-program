@@ -8,8 +8,11 @@
  * console.log(reverseString(123)) // 'This is not a string!'
  */
 function reverseString(str) {
-  
-}
+  if (typeof str !== 'string') {
+    return 'This is not a string!';
+  }
+  return str.split("").reverse().join("");
+};
 
 /**
  * Calculate a century by given year if a number is passed
@@ -21,8 +24,17 @@ function reverseString(str) {
 * console.log(centuryFromYear(1601)) // 17
 */
 function centuryFromYear(year) {
-  
-}
+  if (typeof year !== "number") {
+    return "Please pass parameter as a number";
+  }
+  let yearString = "" + year;
+  let century = parseInt(yearString.substring(0,2));
+  let rest = parseInt(yearString.substring(2));
+  if (rest > 0){
+    century++;
+  }
+  return century;
+};
 
 /**
  * Calculate count of the provided char in the string
@@ -35,8 +47,17 @@ function centuryFromYear(year) {
  * console.log(strCount('', 'z')) // 0
  */
 function strCount(str, char) {
-
+  if (typeof str !== 'string') {
+    return 'Provided parameter is not a string'
+  }
+  let charsCount = 0;
+for (let i = 0; i < str.length; i++){
+if (str[i] === char){
+  charsCount++;
 }
+}
+return charsCount;
+};
 
 /**
  * Write a method to reduce the length of the string or truncate it if it is longer
@@ -50,8 +71,12 @@ function strCount(str, char) {
  * console.log(truncateString('This', 6)) // 'This'
  */
 function truncateString(str, num) {
-
-}
+    if (str.length <= num) {
+      return str;
+    } else {
+      return str.slice(0, num) + '...';
+    }
+  };
 
 /**
  * replace 10 with 'ten' word
@@ -61,8 +86,11 @@ function truncateString(str, num) {
  * console.log(replace10("231054")) // 23ten54
  */
 function replace10(text) {
-
-}
+  if (typeof text !== "string") {
+    return 'Provided parameter is not correct'
+  }
+  return text.replace(/10/gi, 'ten');
+};
 
 /**
  * replace value in square brackets with CONFIDENTIAL
@@ -72,8 +100,12 @@ function replace10(text) {
  * console.log(replaceConfidential("lorem [ipsum] si dolor")) // lorem [CONFIDENTIAL] si dolor
  */
 function replaceConfidential(text) {
-
-}
+  if (typeof text !== "string") {
+    return 'Provided parameter should be a string'
+  }
+   const confidential = text.replace(/\[[^\]]+\]/g, "[CONFIDENTIAL]");
+    return confidential;
+  };
 
 module.exports = {
   reverseString,
