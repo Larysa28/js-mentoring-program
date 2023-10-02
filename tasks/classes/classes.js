@@ -6,15 +6,16 @@
  */
   class Person {
     constructor(firstName, lastName) {
-        this.firstName = "Larysa";
-        this.lastName = "Stupina";
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     getFullName() {
         return this.firstName + " " +this.lastName;
     }
 }
-const personio = new Person;
+const person = new Person("Larysa","Stupina");;
+
 
 /**
  * implement class Student that extends Person with:
@@ -26,18 +27,14 @@ const personio = new Person;
 class Student extends Person {
     constructor(firstName, lastName, grade) {
         super(firstName, lastName);
-        this.grade = "5";
+        this.grade = grade;
     }
-
     getGrade() {
         return this.grade;
     }
 }
 
-const studio = new Student;
-
-const person = ''; //create instance of class person
-const student = ''; //create instance of class student
+const student = new Student("larysa","Stupina",5);; 
 
 module.exports = {
     person,
