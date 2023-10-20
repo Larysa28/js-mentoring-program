@@ -31,5 +31,9 @@
     "mocha": "^7.0.1",
     "node-fetch": "^2.6.0",
     "sinon": "latest"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.8.5"
   }
 }
