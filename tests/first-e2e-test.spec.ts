@@ -1,34 +1,84 @@
 import { test, expect } from '@playwright/test';
+import { LandingPage } from '../pageObjects/LandingPage';
+import { ProductPage } from '../pageObjects/ProductPage';
+import { ConfigPage } from '../pageObjects/ConfigPage';
+import { BasketPage } from '../pageObjects/BasketPage';
+import { ok } from 'assert';
 
 test('has title', async ({ page }) => {
-  await page.goto('https://app.dev-esurance.ch/gastrosuisse');
+const landingPage = new LandingPage(page);
+const productPage = new ProductPage(page);
+const configPage = new ConfigPage(page);
+const basketPage = new BasketPage(page);
+const name = "Larysa";
+const surname = "Stupina";
+const email = "ls+321@esurance.ch";
+const phone = "+380985177110";
+const organisation = "esurance";
+const city = "Bern";
+const zipcode = "4444";
+const streetNumber = "55";
+const strret = "Hauptstreet";
 
-  // Expect a title "to contain" a substring.
+await landingPage.goto();
+
   await expect(page).toHaveTitle(/GastroVersicherungen/);
 
-  await page.locator('[data-test=product-tile_Unfall]').click();
+  await landingPage.selectUnfallProduct();
 
-const productName = await page.locator('[data-test="product-headline"]').innerText();
+const productName = await productPage.getProductName();
 
-await expect(productName).toEqual('GastroUnfall');
+await productPage.checkProductName(productName);
 
-await page.locator('[data-test="price-parameter-activity_of_company_0"]').click();
+await productPage.selectCompanyActivityParameter();
 
-await page.locator('[data-test="price-parameter-option"]', { hasText:'Privatpension' }).click();
+await productPage.selectPriceParameterOption();
 
-await page.locator('[data-test="price-calculator-next-button"]', { hasText:'Weiter' }).click();
+await productPage.selectWeiter();
 
-await page.locator('[data-test="382-control"]').click();
+await configPage.selectCoveregeButton();
 
-const price = await page.locator('.css-1qm1lh [data-test="total-price-block"] h6:last-child').innerText();
+const price = await configPage.getTotalPrice();
 
-await page.locator('[data-test="price-calculator-next-button"]').first().click();
+await configPage.selectButtonWeiter();
 
-await page.locator('[data-test="1063-basket-product-card-item"]');
+await basketPage.selectProductCard();
 
-const priceBasket = await page.locator('.css-5ffpvl'). innerText();
+const priceBasket = await basketPage.selectBasketPrice();
 
-await expect(price).toEqual(priceBasket);
+  expect(price).toEqual(priceBasket);
 
+await basketPage.selectPhysicalOfferButton();
+
+await basketPage.selectRadioButton();
+
+await basketPage.fillName(name);
+
+await basketPage.fillSurname(surname);
+
+await basketPage.fillEmail(email);
+
+await basketPage.fillPhone(phone);
+
+await basketPage.selectOrganisation(organisation);
+
+await basketPage.fillStreet(street);
+
+await basketPage.fillStreetNumber(streetNumber);
+
+await basketPage.fillZipcode(zipcode);
+
+await basketPage.fillCity(city);
+
+await basketPage.selectCheckbox();
+
+await basketPage.selectButtonOfferteHerunterladen();
+
+const physicalOfferResponse = await page.waitForResponse("**/api/v1/lead/physical-offer");
+
+expect(physicalOfferResponse.status()).toBe(200)
+const statusText = physicalOfferResponse.statusText();
+
+expect(physicalOfferResponse.ok()).toBeTruthy();
 });
 

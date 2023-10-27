@@ -15,3 +15,20 @@
  *    9) Also run test from terminal using command npx playwright test first-e2e-test.spec.ts
  *    10) Run command npx playwright show-report to see test run report
  */
+
+
+/**
+ * 1. Write a page-object for landing page
+ * 2. Write a page-object for product page
+ * 3. Write a page-object for config page
+ * 4. Write a page-object for basket page
+ * 5. Write aditional test that will performe the following:
+ *    1) Choose product and add them to the basket
+ *    2) Check that these products are displayed in the basket
+ *    3) Verify that prices in the basket and product config page are exactly the same
+ *    4) Open Physical Offer modal window 
+ *    5) Fill all the fields
+ *    6) Click download button
+ *    7)* Verify that Physical Offer request return 200 OK
+ *   
+ */
