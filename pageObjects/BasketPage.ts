@@ -17,11 +17,15 @@ export class BasketPage {
   readonly city: Locator;
   readonly checkbox: Locator;
   readonly buttonOfferteHerunterladen: Locator;
+  readonly productCardContentDropdown: Locator;
+  readonly submitButton: Locator;
+  readonly checkboxTC: Locator;
+  readonly username: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.productCard = page.locator('[data-test="1063-basket-product-card-item"]');
-    this.basketPrice = page.locator('.css-5ffpvl');
+    this.basketPrice = page.locator('.BasketSubmit-total h3');
     this.physicalOfferButton = page.locator('[data-test="download-physical-offer-button"]');
     this.radioButton = page.locator('[type="radio"][value="mrs"]');
     this.name = page.locator('[data-test="lead-modal-form_first-name-container"] input');
@@ -35,6 +39,10 @@ export class BasketPage {
     this.city = page.locator('[data-test="lead-modal-form_company-town-container"] input');
     this.checkbox = page.locator('.css-1e40npd input');
     this.buttonOfferteHerunterladen = page.locator('[data-test="lead-modal-submit-form-button"]');
+    this.productCardContentDropdown = page.locator('[data-test="basket-product-card-content-dropdown-header"]');
+    this.submitButton = page.locator('[data-test="submit-basket-button"]');
+    this.checkboxTC = page.locator('[type="checkbox"]');
+    this.username = page.locator('[.username] input');
   }
 
   async goto() {
@@ -42,7 +50,7 @@ export class BasketPage {
   }
 
   async selectProductCard() {
-    await this.productCard;
+    await this.productCardContentDropdown.click();
   }
 
   async selectBasketPrice(){
@@ -99,5 +107,17 @@ export class BasketPage {
 
   async selectButtonOfferteHerunterladen(){
     await this.buttonOfferteHerunterladen.click();
+  }
+
+  async selectCheckboxTC(){
+    await this.checkboxTC.click();
+  }
+
+  async selectSubmitButton(){
+    await this.submitButton.click();
+  }
+
+  async fillUsername(username: string){
+    await this.username.fill(username);
   }
 }

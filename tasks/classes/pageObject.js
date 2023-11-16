@@ -30,5 +30,8 @@
  *    5) Fill all the fields
  *    6) Click download button
  *    7)* Verify that Physical Offer request return 200 OK
- *   
+ *    8) Complete checkout 
+ *    9) Verify display of pop-up Confirmation
+ *    10) Verify Submit 200
+ *    11) Verify analyse responce status (draft or active)
  */
